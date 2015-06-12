@@ -7,9 +7,16 @@ import java.util.Arrays;
 
 public class Principal {
 	
-	Persona [] per = new Persona[5];
+//	Persona [] per = new Persona[5];
+	Persona [] per = new Persona[2];
 	
-	public void main(){
+	public static void main(String[] args) {
+		Principal p = new Principal();
+		p.ejecutar();
+
+	}
+	
+	public void ejecutar(){
 		
 		Scanner s = new Scanner(System.in);
 				
@@ -27,14 +34,14 @@ public class Principal {
 		
 		while (index < per.length){			
 			System.out.println("Empleado o Cliente (E/C)?");
-			resp = s.nextLine();
-			if (resp.toLowerCase() == "e") {
+			resp = s.nextLine().toUpperCase();
+			if (resp.equalsIgnoreCase("E")) {
 				per[index] = this.cargaEmpleado(s);
 				index++;
-			}else if (resp.toLowerCase() == "c") {
+			}else if (resp.equalsIgnoreCase("C")) {
 				per[index] = this.cargaCliente(s);
 				index++;
-			};
+			}
 		
 		} 	
 	}
@@ -47,7 +54,7 @@ public class Principal {
 	
 	private void ordenaPersonas(){
 		
-		Arrays.sort(per);
+		//eArrays.sort(per);
 
 	}
 	
