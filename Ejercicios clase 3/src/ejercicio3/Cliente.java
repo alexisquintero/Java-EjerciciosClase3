@@ -32,19 +32,15 @@ public class Cliente extends Persona {
 		return datos;
 	}
 	
-	public void cargaDatosCliente(){
+	public void cargaDatosCliente(Scanner s){
 		
-		super.cargaDatosPersona();
-		
-		Scanner s = new Scanner(System.in);
-		
+		super.cargaDatosPersona(s);
+				
 		System.out.println("Ingrese el CUIT: ");
 		this.setCuit(s.nextLine());
 		System.out.println("Ingrese la direccion");
 		this.setDireccion(s.nextLine());
-		
-		s.close();
-		
+			
 	}
 	
 }

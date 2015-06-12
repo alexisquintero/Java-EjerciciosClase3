@@ -32,18 +32,15 @@ public class Empleado extends Persona {
 		return datos;
 	}
 	
-	public void cargaDatosEmpleado(){
+	public void cargaDatosEmpleado(Scanner s){
 		
-		super.cargaDatosPersona();
-		
-		Scanner s = new Scanner(System.in);
+		super.cargaDatosPersona(s);
 		
 		System.out.println("Ingrese el puesto: ");
 		this.setPuesto(s.nextLine());
 		System.out.println("Ingrese el legajo: ");
 		this.setLegajo(s.nextLine());
 		
-		s.close();
 	}
 
 

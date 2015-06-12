@@ -41,17 +41,13 @@ public class Persona {
 		return datos;
 	}
 	
-	public void cargaDatosPersona(){
-		
-		Scanner s = new Scanner(System.in);
-		
+	public void cargaDatosPersona(Scanner s){
+			
 		System.out.println("Ingrese el DNI: ");
 		this.setDni(s.nextInt());
 		System.out.println("Ingrese el nombre: ");
 		this.setNombre(s.nextLine());
 		System.out.println("Ingrese el apellido: ");
 		this.setApellido(s.nextLine());
-		
-		s.close();
 	}
 }

@@ -1,52 +1,71 @@
 package ejercicio3;
 
 import java.util.Scanner;
+import java.util.Arrays;
+
+
 
 public class Principal {
 	
+	Persona [] per = new Persona[5];
+	
 	public void main(){
 		
-	}
-	
-	public void cargaPersonas(){
-		
 		Scanner s = new Scanner(System.in);
-		String resp;
-		Persona[] p = new Persona[5];
+				
+		this.cargaPersonas(s);
+		this.ordenaPersonas();
+		this.muestraPersonas();
 		
-		for (int i = 0; i < p.length; i++) {			
-			System.out.println("Empleado o Cliente (E/C)?");
-			resp = s.nextLine();
-			if (resp.toLowerCase() == "e") {
-				p[i] = this.cargaEmpleado();
-			}else if (resp.toLowerCase() == "c") {
-				p[i] = this.cargaCliente();
-			};
-		
-		} 
 		s.close();
 	}
 	
-	public Persona cargaDatos(Persona per){
+	private void cargaPersonas(Scanner s){
 		
+		String resp = "";
+		int index = 0;
 		
-		return per;
+		while (index < per.length){			
+			System.out.println("Empleado o Cliente (E/C)?");
+			resp = s.nextLine();
+			if (resp.toLowerCase() == "e") {
+				per[index] = this.cargaEmpleado(s);
+				index++;
+			}else if (resp.toLowerCase() == "c") {
+				per[index] = this.cargaCliente(s);
+				index++;
+			};
+		
+		} 	
+	}
+
+	private void muestraPersonas(){
+		for (int i = 0; i < per.length; i++) {
+			System.out.println("Los datos de la persona nro " + String.valueOf(i + 1) + " son: " + per[i].descGral());
+		}
 	}
 	
-	protected Empleado cargaEmpleado(){
+	private void ordenaPersonas(){
+		
+		Arrays.sort(per);
+
+	}
+	
+		
+	private Empleado cargaEmpleado(Scanner s){
 		
 		Empleado emp = new Empleado();
 		
-		emp.cargaDatosEmpleado();
+		emp.cargaDatosEmpleado(s);
 		
 		return emp;
 	}
 	
-	protected Cliente cargaCliente(){
+	private Cliente cargaCliente(Scanner s){
 		
 		Cliente cli = new Cliente();
 		
-		cli.cargaDatosCliente();
+		cli.cargaDatosCliente(s);
 		
 		return cli;
 	}
